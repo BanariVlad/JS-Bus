@@ -1,0 +1,12 @@
+#bus {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  transition: .2s;
+  position: relative;
+  top: 0;
+  moveLeft: 0;
+  moveRight: 0;
+  bottom: 0;
+  background-color: coral;
+}
