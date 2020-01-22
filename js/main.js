@@ -5,6 +5,7 @@ class Bus {
       y: 0
     }
     this.bus = bus;
+    this.timer = 500;
   }
 
   setPosition() {
@@ -12,19 +13,39 @@ class Bus {
   }
 
   moveUp() {
-    this.position.y -= 100;
+    setTimeout(() => {
+      this.position.y -= 100;
+      this.setPosition();
+    }, this.timer);
+    this.incrementTimer();
   }
 
   moveDown() {
-    this.position.y += 100;
+    setTimeout(() => {
+      this.position.y += 100;
+      this.setPosition();
+    }, this.timer);
+    this.incrementTimer();
   }
 
   moveRight() {
-    this.position.x += 100;
+    setTimeout(() => {
+      this.position.x += 100;
+      this.setPosition();
+    }, this.timer);
+    this.incrementTimer();
   }
 
   moveLeft() {
-    this.position.x -= 100;
+    setTimeout(() => {
+      this.position.x -= 100;
+      this.setPosition();
+    }, this.timer);
+    this.incrementTimer();
+  }
+
+  incrementTimer() {
+    this.timer += 500;
   }
 }
 
@@ -34,25 +55,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const start = () => {
   const bus = new Bus(document.getElementById('bus'));
-  const route = [
-    bus.moveRight(),
-    bus.moveRight(),
-    bus.moveDown(),
-    bus.moveRight(),
-    bus.moveUp(),
-    bus.moveLeft(),
-    bus.moveDown(),
-    bus.moveDown(),
-    bus.moveLeft(),
-    bus.moveDown(),
-    bus.moveRight(),
-    bus.moveUp(),
-    bus.moveUp()
-  ]
-
-  for (let i = 0; i < route.length; i++) {
-    setTimeout(() => {
-      bus.setPosition();
-    }, 1000 * (i + 1));
-  }
+  bus.moveRight();
+  bus.moveDown();
+  bus.moveDown();
+  bus.moveLeft();
+  bus.moveDown();
+  bus.moveRight();
+  bus.moveDown();
+  bus.moveRight();
+  bus.moveUp();
+  bus.moveRight();
+  bus.moveUp();
+  bus.moveLeft();
+  bus.moveUp();
+  bus.moveUp();
+  bus.moveRight();
+  bus.moveRight();
+  bus.moveDown();
+  bus.moveLeft();
 }
