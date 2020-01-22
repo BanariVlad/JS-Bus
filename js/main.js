@@ -73,4 +73,5 @@ const start = () => {
   bus.moveRight();
   bus.moveDown();
   bus.moveLeft();
+  bus.moveDown();
 }
